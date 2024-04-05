@@ -1,0 +1,65 @@
+cabal-version:         3.0
+name:                  bisemigroup
+version:               0.1.0.0
+synopsis:  This package provides typeclasses for algebraic structures with two semigroup operations.
+description:  This package provides typeclasses for algebraic structures with two semigroup operations.
+license:               MIT
+license-file:          LICENSE
+author:                Eric Meinhardt
+maintainer:            ericmeinhardt@gmail.com
+copyright:             2024
+homepage:              https://github.com/emeinhardt/semiring-sublcasses
+bug-reports:           https://github.com/emeinhardt/bisemigroup/issues
+category:              Data
+build-type:            Simple
+extra-doc-files:       CHANGELOG.md
+
+source-repository head
+  type:     git
+  location: https://github.com/emeinhardt/bisemigroup/bisemigroup.git
+
+common warnings
+  ghc-options:
+    -Wall -Wdefault -Wno-orphans -Wredundant-constraints -Wincomplete-uni-patterns -Wincomplete-record-updates -Wcompat
+
+library
+  import:              warnings
+  default-language:    GHC2021
+  default-extensions:  UnicodeSyntax
+  -- other-extensions:
+  hs-source-dirs:      src
+  exposed-modules:
+    Data.Bisemigroup
+    -- Data.Bisemigroup.Properties
+    Data.Bisemigroup.Syntax
+    Data.Bimonoid
+    -- Data.Bimonoid.Properties
+    Data.Bimonoid.Syntax
+    Data.Binoid
+    -- Data.Binoid.Properties
+    Data.United
+    -- Data.United.Properties
+    Data.Dioid
+    -- Data.Dioid.Properties
+    Data.Nearsemiring
+    -- Data.Nearsemiring.Properties
+    Data.Semiring
+    -- Data.Semiring.Properties
+
+  -- other-modules:
+  build-depends:
+      base    >= 4.17.2.1 && <5.0
+    -- , monoid-subclasses
+
+
+test-suite bisemigroup-test
+  import:              warnings
+  default-language:    GHC2021
+  -- other-extensions:
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Main.hs
+  build-depends:
+      base    >= 4.17.2.1 && <5.0
+    , bisemigroup
+  -- other-modules:
